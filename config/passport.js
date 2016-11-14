@@ -3,8 +3,10 @@ var githubStrategy = require('passport-github').Strategy;
 
 module.exports = function(){
     passport.use(new githubStrategy({
-        clientID: '1fad1139dbb75f256f8b',
-        clientSecret: '9a081d5eebd76707aee7803d31be3e28136bf68d',
+        //clientID: '1fad1139dbb75f256f8b',
+        //clientSecret: '9a081d5eebd76707aee7803d31be3e28136bf68d',
+        clientID: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_SECRET,
         callbackURL: 'http://localhost:3000/auth/github/callback' 
     }, function(accessToken, refreshToken, profile, done){
         done(null, profile);
